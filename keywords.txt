@@ -1,0 +1,36 @@
+##################################################
+# Syntax Coloring Map For RoveComm
+##################################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+RoveCommEthernetUdp KEYWORD1
+RoveCommEthernetUdpSubscribers KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+RoveComm_packPacket	KEYWORD2
+RoveComm_unpackPacket	KEYWORD2
+begin	KEYWORD2
+write	KEYWORD2
+read	KEYWORD2
+writeTo	KEYWORD2
+readFrom	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+ROVECOMM_VERSION	LITERAL1
+ROVECOMM_VERSION_ERROR	LITERAL1
+ROVECOMM_PACKET_HEADER_SIZE	LITERAL1
+ROVECOMM_ETHERNET_UDP_PORT	LITERAL1
+ROVECOMM_ETHERNET_UDP_SUBSCRIBERS	LITERAL1
+ROVECOMM_SUBSCRIBE_REQUEST	LITERAL1
+ROVECOMM_UNSUBSCRIBE_REQUEST	LITERAL1
+SEQ_NUM_DEPRECATED	LITERAL1
+FLAGS_DEPRECATED	LITERAL1
