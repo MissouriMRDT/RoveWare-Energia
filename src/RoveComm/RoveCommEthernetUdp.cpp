@@ -18,7 +18,7 @@
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#include "RoveComm.h"
+#include "RoveCommEthernetUdp.h"
 #include "RoveCommProtocol.h"
 
 ////////////////////////////////////////////////////////////////////////////
@@ -31,21 +31,7 @@
 // #include <Ethernet.h>    
 // #include <EthernetUdp.h>
 
-////////////////////////////////////////////////////////////////////////////
-// Else => Arduino Ethernet (Wiznet)
-//
-// Board Manager installs to =>  C:\Users\<YourUser>\AppData\Local\Arduino15
-//
-// #include <Arduino.h>
-// #include <SPI.h>
-// #include <Ethernet.h>    
-// #include <EthernetUdp.h>
-
-#ifdef Energia_h
-  #include <Energia.h>
-#else
-  #include <Arduino.h>
-#endif 
+#include <Energia.h>
 #include <SPI.h>
 #include <Ethernet.h>
 #include <EthernetUdp.h> // EthernetClass Ethernet; => instance already in Ethernet.cpp
@@ -71,11 +57,15 @@ void RoveCommEthernetUdp::begin(uint8_t ip_octet_1, uint8_t ip_octet_2, uint8_t 
   
   IPAddress LocalIp(ip_octet_1, ip_octet_2, ip_octet_3, ip_octet_4);
 
- // Ethernet.enableActivityLed();
- // Ethernet.enableLinkLed(); 
+  Ethernet.enableActivityLed();
+  Ethernet.enableLinkLed(); 
   
   Ethernet.begin(0, LocalIp);    
   EthernetUdp.begin(ROVECOMM_ETHERNET_UDP_PORT);
+  delay(1);
+  
+  roveCommBeginSerialDebug();
+  delay(1);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -98,7 +88,8 @@ void RoveCommEthernetUdp::write(uint16_t data_id, size_t data_size, const void* 
       EthernetUdp.write(rovecomm_packet, ROVECOMM_PACKET_HEADER_SIZE + data_size);
       EthernetUdp.endPacket();
     }
-  } 
+  }   
+  roveCommWriteSerialDebug();
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -117,6 +108,7 @@ void RoveCommEthernetUdp::writeTo(uint16_t data_id, size_t  data_size, const voi
   EthernetUdp.beginPacket(RemoteIp, port);
   EthernetUdp.write(rovecomm_packet, ROVECOMM_PACKET_HEADER_SIZE + data_size);
   EthernetUdp.endPacket(); 
+  roveCommWriteToSerialDebug();
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -172,8 +164,102 @@ void RoveCommEthernetUdp::read(uint16_t* data_id, size_t* data_size, void* data)
         }
       }
     }  
-  }
+  }  
+  roveCommReadSerialDebug();
 }
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// todo   
+// todo 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#if (defined(ROVECOMM_READ_DEBUG_SERIAL) || defined(ROVECOMM_WRITE_DEBUG_SERIAL))
+
+void roveCommBeginSerialDebug()
+{
+  Serial.begin(9600);    
+}
+
+#else 
+void roveCommBeginSerialDebug() 
+{
+  //pass
+}
+
+#endif
+
+#ifdef ROVECOMM_READ_DEBUG_SERIAL
+
+void roveCommReadSerialDebug()
+{
+  Serial.println("RoveComm Read");
+  Serial.print("data_id: ");
+  Serial.println(data_id);
+  Serial.print("data_size: ");
+  Serial.println(data_size);
+  Serial.print("data: ");
+  Serial.println(data);
+}
+
+#else
+
+void roveCommReadSerialDebug() 
+{
+  //pass   
+} 
+#endif 
+
+#ifdef ROVECOMM_WRITE_DEBUG_SERIAL
+
+void roveCommWriteSerialDebug()
+{
+  Serial.println("RoveComm Write");
+  Serial.print("data_id: ");
+  Serial.println(data_id);
+  Serial.print("data_size: ");
+  Serial.println(data_size);
+  Serial.print("data: ");
+  Serial.println(data);
+}
+
+void roveCommWriteToSerialDebug()
+{
+  Serial.println("RoveComm WriteTo");
+  Serial.print("ip octets: ");
+  Serial.print(ip_octet_1);
+  Serial.print(", ");
+  Serial.print(ip_octet_2);
+  Serial.print(", ");
+  Serial.print(ip_octet_3);
+  Serial.print(", ");
+  Serial.println(ip_octet_4);
+  
+  Serial.print("port: ");
+  Serial.println(port);
+  
+  Serial.print("data_id:");
+  Serial.println(data_id);
+  Serial.print("data_size:");
+  Serial.println(data_size);
+  Serial.print("data:");
+  Serial.println(data);
+}
+
+#else 
+
+void roveCommWriteSerialDebug() 
+{
+  //pass   
+} 
+
+void roveCommWriteToSerialDebug() 
+{
+  //pass   
+} 
+#endif
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // todo   

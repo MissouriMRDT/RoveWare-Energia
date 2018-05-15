@@ -47,5 +47,5 @@ const uint16_t ROVECOMM_UNSUBSCRIBE_REQUEST = 4;
 void RoveComm_packPacket(uint8_t* rovecomm_packet, uint16_t  data_id, size_t  data_size, const uint8_t* data);
 void RoveComm_unpackPacket(const uint8_t* rovecomm_packet, uint8_t* rovecomm_version, uint16_t* data_id, size_t* data_size, uint8_t* data);
 
-#endif
+#endif // RoveCommProtocol_h
 
