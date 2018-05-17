@@ -2,6 +2,8 @@
 #define ROVEWARE_H_
 
 #include "RoveWatchdog/RoveWatchdog.h"
+#include "RoveRingBuffer/RoveRingBuffer.h"
+
 #include "RoveComm/RoveCommManifest.h"
 #include "RoveComm/RoveCommEthernetUdp.h"
 
