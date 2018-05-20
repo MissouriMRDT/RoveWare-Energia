@@ -22,6 +22,17 @@ const uint8_t ROVE_THIRD_OCTET        = 1;
 // Board IP Address
 const uint8_t DRIVEBOARD_FOURTH_OCTET   = 130;
 const uint8_t SCIENCEBOARD_FOURTH_OCTET = 135;
+const uint8_t DRILLBOARD_FOURTH_OCTET   = 139;
+
+
+///////////////////////////////////////////
+//              RED Controller           //
+///////////////////////////////////////////
+
+/////////////////////////////////////////////////////
+// RED Xbox joystick limits
+const int16_t RED_MAX_FORWARD =   1000;
+const int16_t RED_MAX_REVERSE =  -1000;
 
 ///////////////////////////////////////////
 //              Data IDs                 //
@@ -38,6 +49,15 @@ const uint16_t LED_FUNCTION      = 2321;
 const uint16_t HEADLIGHTS        = 2336;
 const uint16_t DROP_BAY_OPEN     = 1584;
 const uint16_t DROP_BAY_CLOSE    = 1585;
+
+////////////////////////////////////////////////
+// DrillBoard Data IDs
+const uint16_t LEADSCREW_OPEN_LOOP       = 2901;
+const uint16_t GENEVA_OPEN_LOOP          = 2902;
+const uint16_t DRILL_OPEN_LOOP           = 2900;
+
+const uint16_t LEADSCREW_TO_LIMIT_SWITCH = 2903;
+const uint16_t GENEVA_TO_LIMIT_SWITCH    = 2904;
 
 ////////////////////////////////////////////////////
 // ScienceBoad Data IDs
@@ -56,6 +76,17 @@ const uint16_t SCIENCE_COMMANDS              = 1808;
 // DriveBoard Data Commands
 const uint8_t DROP_BAY_1  = 0;
 const uint8_t DROP_BAY_2  = 1;
+
+//////////////////////////////////////////////////
+// DrillBoard Data Commands
+const uint8_t GENEVA_REVERSE_TO_LIMIT_SWITCH  = 0;
+const uint8_t GENEVA_FORWARD_TO_LIMIT_SWITCH  = 1;
+
+const uint8_t LEADSCREW_BOTTOM_LIMIT_SWITCH   = 0;
+const uint8_t LEADSCREW_DROPOFF_LIMIT_SWITCH  = 1;
+const uint8_t LEADSCREW_EMPTY_SWITCH          = 2;
+const uint8_t LEADSCREW_RELOAD_LIMIT_SWITCH   = 3;
+const uint8_t LEADSCREW_TOP_LIMIT_SWITCH      = 4;
 
 /////////////////////////////////////
 //Science Commands
