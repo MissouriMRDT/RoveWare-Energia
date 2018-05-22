@@ -28,7 +28,7 @@ const uint8_t GIMBALBOARD_FOURTH_OCTET  = 134;
 ///////////////////////////////////////////
 //              RED Controller           //
 ///////////////////////////////////////////
-// RED Xbox joystick limits/////////////
+//RED Xbox joystick limits/////////////
 const int16_t RED_MAX_FORWARD =   1000;
 const int16_t RED_MAX_REVERSE =  -1000;
 
@@ -80,31 +80,22 @@ const uint16_t MAST_MOVE_TO_POSITION = 28325;
 ///////////////////////////////////////////
 //             Data Commands             //
 ///////////////////////////////////////////
-// DriveBoard Data Commands///
+//DriveBoard Data Commands////
 const uint8_t DROP_BAY_1  = 0;
 const uint8_t DROP_BAY_2  = 1;
-
-// DrillBoard Data Commands//////////////////////////
-const uint8_t GENEVA_MOVE_HOME     = 0;
-
-const uint8_t LEADSCREW_TO_BOTTOM_LIMIT_SWITCH   = 0;
-const uint8_t LEADSCREW_TO_DROPOFF_LIMIT_SWITCH  = 1;
-const uint8_t LEADSCREW_TO_EMPTY_SWITCH          = 2;
-const uint8_t LEADSCREW_TO_RELOAD_LIMIT_SWITCH   = 3;
-const uint8_t LEADSCREW_TO_TOP_LIMIT_SWITCH      = 4;
 
 //Science Commands//////////////////
 const uint16_t LASER_ON         = 2;
 const uint16_t LASER_OFF        = 3;
 const uint16_t SPECTROMETER_RUN = 6;
 
-// CameraBoard Data Commands///
+//CameraBoard Data Commands////
 const uint8_t MUX_CAMERA_1 = 1;
 const uint8_t MUX_CAMERA_2 = 2;
 const uint8_t MUX_CAMERA_3 = 3;
 const uint8_t MUX_CAMERA_4 = 4;
 
-// GimbalBoard Data Commands////////////
+//GimbalBoard Data Commands/////////////
 const uint8_t MAST_TO_UP_POSITION   = 0;
 const uint8_t MAST_TO_DOWN_POSITION = 1;
 
