@@ -3,8 +3,8 @@
 
 #include <stdint.h>
 
-///////////////////////////////////////////
-//              IP Ports                 //
+//////////////////////////////////////////////
+//              IP Ports                    //
 //////////////////////////////////////////////
 const uint16_t ROVE_ETHERNET_UDP_PORT = 11000;
 const uint16_t ROVE_ETHERNET_TCP_PORT = 11000;
@@ -47,13 +47,20 @@ const uint16_t HEADLIGHTS        = 2336;
 const uint16_t DROP_BAY_OPEN     = 1584;
 const uint16_t DROP_BAY_CLOSE    = 1585;
 
-//DrillBoard Data IDs///////////////////////////
-const uint16_t LEADSCREW_OPEN_LOOP       = 2901;
-const uint16_t GENEVA_OPEN_LOOP          = 2902;
-const uint16_t DRILL_OPEN_LOOP           = 2900;
+//DrillBoard Data IDs////////////////////////////////////
+const uint16_t LEADSCREW_OPEN_LOOP                = 2901;
+const uint16_t GENEVA_OPEN_LOOP                   = 2902;
+const uint16_t DRILL_OPEN_LOOP                    = 2900;
 
-const uint16_t LEADSCREW_TO_LIMIT_SWITCH = 2903;
-const uint16_t GENEVA_TO_POSITION        = 2904;
+const uint16_t LEADSCREW_TO_POSITION              = 2903;
+const uint16_t GENEVA_TO_POSITION                 = 2904;
+
+const uint16_t GENEVA_AT_POSITION                 = 2905;
+const uint16_t LEADSCREW_AT_POSITION              = 2906;
+
+const uint16_t LEADSCREW_LIMIT_SWITCH_TRIGGERED   = 2908;
+const uint16_t GENEVA_LIMIT_SWITCH_TRIGGERED      = 2907;
+const uint16_t CAROUSEL_LIMIT_SWITCH_TRIGGERED    = 2907;
 
 //ScienceBoard Data IDs//////////////////////////////
 const uint16_t AIR_PRESSURE_SCI_SENSOR_0     = 1824;
@@ -73,7 +80,7 @@ const uint16_t GIMBAL_PAN            = 28321;
 const uint16_t GIMBAL_TILT           = 28322;
 const uint16_t GIMBAL_ROLL           = 28323;
 const uint16_t CAMERA1_COMMAND       = 1568;
-const uint16_t MAST_MOVE_CLOSED_LOOP = 28324;
+const uint16_t MAST_MOVE_OPEN_LOOP = 28324;
 const uint16_t MAST_MOVE_TO_POSITION = 28325;
 
 
@@ -96,9 +103,6 @@ const uint8_t MUX_CAMERA_3 = 3;
 const uint8_t MUX_CAMERA_4 = 4;
 
 //GimbalBoard Data Commands/////////////
-const uint8_t MAST_TO_UP_POSITION   = 0;
-const uint8_t MAST_TO_DOWN_POSITION = 1;
-
 const uint8_t CAMERA_STOP           = 0;
 const uint8_t CAMERA_ZOOM_IN        = 1;
 const uint8_t CAMERA_ZOOM_OUT       = 2;
