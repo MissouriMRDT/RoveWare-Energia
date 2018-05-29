@@ -1,8 +1,7 @@
 #ifndef ROVEWARE_H_
 #define ROVEWARE_H_
 
-#include "RoveComm/RoveCommManifest.h"
-#include "RoveComm/RoveCommEthernetUdp.h"
+#include "RoveComm/RoveComm.h"
 
 #include "RoveWatchdog/RoveWatchdog.h"
 #include "RoveRingBuffer/RoveRingBuffer.h"

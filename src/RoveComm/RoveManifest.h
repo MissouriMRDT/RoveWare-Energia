@@ -1,8 +1,3 @@
-#ifndef RoveCommManifest_h
-#define RoveCommManifest_h
-
-#include <stdint.h>
-
 //////////////////////////////////////////////
 //              IP Ports                    //
 //////////////////////////////////////////////
@@ -108,5 +103,3 @@ const uint8_t CAMERA_ZOOM_IN        = 1;
 const uint8_t CAMERA_ZOOM_OUT       = 2;
 const uint8_t CAMERA_FOCUS_IN       = 3;
 const uint8_t CAMERA_FOCUS_OUT      = 4;
-
-#endif // RoveCommManifest_h
