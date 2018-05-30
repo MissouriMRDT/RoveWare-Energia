@@ -26,7 +26,7 @@ void RoveVnh5019::begin(uint8_t INA_PIN, uint8_t INB_PIN, uint8_t PWM_PIN)
 
 void RoveVnh5019::drive(int motor_speed)
 { 
-  uint32_t pulse_width_micros = map(motor_speed, VNH5019_MAX_REVERSE, VNH5019_MAX_FORWARD, 0, PERIOD_MICROS); 
+  uint32_t pulse_width_micros = map(motor_speed, 0, VNH5019_MAX_FORWARD, 0, PERIOD_MICROS); 
   
   rovePwmWrite(_PWM_PIN, PERIOD_MICROS, pulse_width_micros);
 
@@ -51,7 +51,7 @@ void RoveVnh5019::drive(int motor_speed)
 
 void RoveVnh5019::brake(int brake_speed)
 { 
-  uint32_t pulse_width_micros = map(brake_speed, VNH5019_MAX_REVERSE, VNH5019_MAX_FORWARD, 0, PERIOD_MICROS); 
+  uint32_t pulse_width_micros = map(brake_speed, 0, VNH5019_MAX_FORWARD, 0, PERIOD_MICROS); 
   
   rovePwmWrite(_PWM_PIN, PERIOD_MICROS, pulse_width_micros);
   digitalWrite(_INA_PIN, HIGH);
