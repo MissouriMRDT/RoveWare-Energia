@@ -6,8 +6,8 @@
 # Datatypes (KEYWORD1)
 #######################################
 
-RoveCommEthernetUdp KEYWORD1
-RoveCommEthernetUdpSubscribers KEYWORD1
+RoveCommEthernetUdp	KEYWORD1
+RoveCommEthernetUdpSubscribers	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
